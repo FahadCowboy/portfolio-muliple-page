@@ -6,13 +6,12 @@ import Footer from './../Footer/Footer';
 import resume from './../../MizanurRahmanResume.pdf'
 import './Home.css';
 import { Link } from 'react-router-dom';
+import Particles from "react-tsparticles";
 
 
 
 const Home = () => {
-
-
-
+   
    return (
    <>
       <Header></Header>
@@ -25,9 +24,9 @@ const Home = () => {
          flex
          md:flex-row
          items-center
-         
       "
       style={{height:"88vh", zIndex:"-123"}}>
+         
          <div className="flex flex-col hidden md:flex items-center justify-between absolute left-0 follow-wrap" style={{}}>
             <ul className="follow-dash">
                <li className="mb-3"><a className="text-xl icon" href="https://github.com/FahadCowboy" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a></li>
