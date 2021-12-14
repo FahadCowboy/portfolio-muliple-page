@@ -1,12 +1,60 @@
-import React from 'react';
-import Banner from './Banner/Banner';
-import Navigation from './Navigation/Navigation';
+import React, { useState } from 'react';
+import logo from './../../MRF-Logo.png'
+import resume from './../../MizanurRahmanResume.pdf'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import './Header.css'
+import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
+   const [toggle, setToggle] = useState(false)
+
    return (
-      <div className="">
-         {/* <Navigation></Navigation>
-         <Banner></Banner> */}
+      
+      <div id="header" className="w-full sticky md:static top-0 z-10" style={{backgroundColor: toggle ? '#1d293a' : '#111a28'}}>
+         <div className="
+            container 
+            px-4
+            lg:px-14
+            py-4
+            mx-auto 
+            flex 
+            flex-col 
+            md:flex-row
+            justify-between
+            items-center
+         "> 
+
+            <div className="w-full flex justify-between items-center">
+               <div className="w-12">
+                  <Link to="/"><img className="w-full" src={logo} alt="" /></Link>
+               </div>
+               <div className="w-9 h-9">
+                  {
+                     toggle?
+                  <div onClick={() => setToggle(false)} className="w-9 h-9 flex justify-center items-center md:hidden text-xl w-4 h-4 rounded theme-bg" style={{color: "#1d293a"}}>
+                     <FontAwesomeIcon icon={faTimesCircle}/>
+                  </div>
+                  :
+                  <div onClick={() => setToggle(true)} className="w-9 h-9 flex  justify-center items-center md:hidden text-1xl p-3 rounded theme-bg" style={{color: "#1d293a"}}>
+                  <FontAwesomeIcon icon={faBars}/>
+                  </div>
+                  }
+               </div>
+               
+            </div>
+            
+            <div className={`z-10 top-20 nav-wrap my-auto w-full ${toggle ? 'flex' : 'hidden'} md:flex md:justify-end absolute md:static`}  style={{backgroundColor: toggle ? '#1d293a' : ''}}>
+               <ul className="flex flex-col md:flex-row text-base p-10 md:p-0">
+                  <li className="my-2 md:my-0"><Link onClick={() => setToggle(false)} to="/home" className="px-4 py-2 inline-block" >HOME</Link></li>
+                  <li className="my-2 md:my-0"><Link onClick={() => setToggle(false)} to="/about" className="px-4 py-2 inline-block" >ABOUT</Link></li>
+                  <li className="my-2 md:my-0"><Link onClick={() => setToggle(false)} to="/projects" className="px-4 py-2 inline-block" >PROJECTS</Link></li>
+                  <li className="my-2 md:my-0"><Link onClick={() => setToggle(false)} to="/contact" className="px-4 py-2 inline-block" >CONTACT</Link></li>
+                  <li className="my-2 md:my-0 ml-4"><Link onClick={() => setToggle(false)} to={resume} download className="px-4 py-2 mt-4 md:mt-0 rounded-md inline-block" style={{border: "2px solid #00cf5d"}} >RESUME</Link></li>
+               </ul>
+            </div>
+         </div>
       </div>
    );
 };

@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import emailjs from 'emailjs-com'
 import { send } from 'emailjs-com';
 import React, { useState } from 'react';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 import './Contact.css'
 
 const Contact = () => {
@@ -53,13 +55,16 @@ const Contact = () => {
 
 
    return (
+      <>
+      <Header></Header>
       <div id="contact" className="
       container 
       px-4
       lg:px-14
       py-2
       mx-auto 
-      py-24
+      pt-16
+      pb-24
       text-center md:text-left
       ">
          <div className="flex justify-center pb-16">
@@ -109,6 +114,8 @@ const Contact = () => {
             </div>
          </div>
       </div>
+      <Footer></Footer>
+      </>
    );
 };
 

@@ -2,24 +2,31 @@ import { faGithub, faGithubAlt } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 import './Project.css'
 
 const Projects = () => {
+
+
    const [projects, setProject] = useState([])
    useEffect(() => {
       fetch('./projects.json')
       .then(res => res.json())
       .then(data => setProject(data))
    }, [])
+
+
    return (
+      <>
+      <Header></Header>
       <div id="projects" className="
          container 
          px-4
          lg:px-14
-         py-2
          mx-auto 
-         py-24
+         pt-16
+         pb-24
       ">
          <div className="flex justify-center pb-16">
             <div className="projects-dash mx-auto inline-block relative">
@@ -68,6 +75,8 @@ const Projects = () => {
             ))}
          </div>
       </div>
+      <Footer></Footer>
+      </>
    );
 };
 

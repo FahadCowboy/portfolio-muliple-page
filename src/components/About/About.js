@@ -2,9 +2,15 @@ import React from 'react';
 import portrait from './../../For-DP-Converted-to-1-Megabyte.jpg'
 import './About.css'
 import resume from './../../MizanurRahmanResume.pdf'
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import LoveToDo from '../LoveToDo/LoveToDo';
+import { Link } from 'react-router-dom';
 
 const About = () => {
    return (
+      <>
+      <Header></Header>
       <div id="about" className="
          container 
          px-4
@@ -34,7 +40,7 @@ const About = () => {
                   
                   <div className="pt-8">
                      <a href={resume} download class=" about-btn py-4 px-6 theme-bg text-base rounded-md">Get Resume</a>
-                     <a href="#contact" class=" about-btn py-4 px-6 text-base rounded-md theme-outline ml-4">Contact Me</a>
+                     <Link to="/contact" class=" about-btn py-4 px-6 text-base rounded-md theme-outline ml-4">Contact Me</Link>
                   </div>
                </div>
                <div className="flex justify-center align-center order-1 md:order-2 my-auto">
@@ -43,7 +49,10 @@ const About = () => {
                   </div>
                </div>
             </div>
-      </div>
+         </div>
+         <LoveToDo></LoveToDo>
+         <Footer></Footer>
+      </>
    );
 };
 
