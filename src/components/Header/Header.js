@@ -51,7 +51,7 @@ const Header = () => {
                   <li className="my-2 md:my-0"><Link onClick={() => setToggle(false)} to="/about" className="px-4 py-2 inline-block" >ABOUT</Link></li>
                   <li className="my-2 md:my-0"><Link onClick={() => setToggle(false)} to="/projects" className="px-4 py-2 inline-block" >PROJECTS</Link></li>
                   <li className="my-2 md:my-0"><Link onClick={() => setToggle(false)} to="/contact" className="px-4 py-2 inline-block" >CONTACT</Link></li>
-                  <li className="my-2 md:my-0 ml-4"><Link onClick={() => setToggle(false)} to={resume} download className="px-4 py-2 mt-4 md:mt-0 rounded-md inline-block" style={{border: "2px solid #00cf5d"}} >RESUME</Link></li>
+                  <li className="my-2 md:my-0 ml-4"><a onClick={() => setToggle(false)} href={resume} download className="px-4 py-2 mt-4 md:mt-0 rounded-md inline-block" style={{border: "2px solid #00cf5d"}} >RESUME</a></li>
                </ul>
             </div>
          </div>

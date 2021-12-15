@@ -6,7 +6,6 @@ import Footer from './../Footer/Footer';
 import resume from './../../MizanurRahmanResume.pdf'
 import './Home.css';
 import { Link } from 'react-router-dom';
-import Particles from "react-tsparticles";
 
 
 

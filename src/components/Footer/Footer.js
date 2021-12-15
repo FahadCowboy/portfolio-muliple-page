@@ -1,4 +1,3 @@
-import { faGit, faGitAlt } from '@fortawesome/free-brands-svg-icons';
 import { faCaretSquareUp, faCodeBranch, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
@@ -33,7 +32,7 @@ const Footer = () => {
                   <a href="https://github.com/FahadCowboy/portfolio" target="_blank" className="font-light mr-2" rel="noopener noreferrer"><span className="text-sm"><FontAwesomeIcon icon={faStar}/></span> STAR</a>
                   <a href="https://github.com/FahadCowboy/portfolio" target="_blank" className="font-light mr-2" rel="noopener noreferrer"><span className="text-sm"><FontAwesomeIcon icon={faCodeBranch}/></span> FORK</a>
                   <h4 className="mr-2 font-extrabold text-lg">BY ME</h4>
-                  <a href="#header" className="theme-bg px-2 py-1 rounded dark-color-dim"><FontAwesomeIcon icon={faCaretSquareUp} /></a>
+                  <button className="theme-bg px-2 py-1 rounded dark-color-dim"><FontAwesomeIcon icon={faCaretSquareUp} /></button>
                </div>
             </div>
             <div>

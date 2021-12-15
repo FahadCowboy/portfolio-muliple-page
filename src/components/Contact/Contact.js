@@ -1,10 +1,10 @@
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import emailjs from 'emailjs-com'
 import { send } from 'emailjs-com';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import Swal from 'sweetalert2'
 import './Contact.css'
 
 const Contact = () => {
@@ -30,7 +30,6 @@ const Contact = () => {
 
    const handSubmit = e => {
       e.preventDefault()
-
       const emailData = {
          userName,
          email,
@@ -40,18 +39,23 @@ const Contact = () => {
 
       if(emailToSend.userName && emailToSend.email && emailToSend.message) {
          send('Fahad@mrf7', 'template_8vgks67', emailToSend, 'user_Py5pe0MDUeOfEcZ7Jdy5k')
-         .then(result => console.log(result))
+         .then(result => {
+            if(result.status === 200){
+               Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'Your message has been sent!',
+                  showConfirmButton: false,
+                  timer: 3500
+               })
+            }
+         })
          .catch(error => console.log(error))
       } else {
-         console.log('Fill the form up properly!')
+         
       }
-      
       e.target.reset()
    }
-   console.log(emailToSend)
-
-
-
 
 
    return (
@@ -77,18 +81,18 @@ const Contact = () => {
                <form onSubmit={handSubmit} style={{width:"100%"}}>
                   <div className="w-full flex justify-center">
                      <label htmlFor="name"></label>
-                     <input onBlur={handleName} name="name" className="input-select w-full lg:w-9/12 mb-5 rounded-lg p-4 text-lg" style={{backgroundColor: "#1d293a"}} type="text" id="name" placeholder="Type your name" />
+                     <input onBlur={handleName} name="name" className="input-select w-full lg:w-9/12 mb-5 rounded-lg p-4 text-lg" style={{backgroundColor: "#1d293a"}} type="text" id="name" placeholder="Type your name" required />
                   </div>
                   <div className="flex justify-center">
                      <label htmlFor="email"></label>
-                     <input onBlur={handleEmail} className="input-select w-full lg:w-9/12 mb-5 rounded-lg p-4 text-lg" style={{backgroundColor: "#1d293a"}} type="email" id="email" placeholder="Type your email" />
+                     <input onBlur={handleEmail} className="input-select w-full lg:w-9/12 mb-5 rounded-lg p-4 text-lg" style={{backgroundColor: "#1d293a"}} type="email" id="email" placeholder="Type your email" required />
                   </div>
                   <div className="flex justify-center">
                      <label htmlFor="message"></label>
-                     <textarea onBlur={handleMessage} name="message" className="input-select w-full lg:w-9/12 mb-5 rounded-lg p-4 text-lg" rows="5" style={{backgroundColor: "#1d293a"}} type="email" id="message" placeholder="Type your message" ></textarea>
+                     <textarea onBlur={handleMessage} name="message" className="input-select w-full lg:w-9/12 mb-5 rounded-lg p-4 text-lg" rows="5" style={{backgroundColor: "#1d293a"}} type="email" id="message" placeholder="Type your message" required ></textarea>
                   </div>
                   <div className="flex justify-center">
-                     <input className="input-selec w-full lg:w-9/12 cursor-pointer theme-bg rounded-lg px-4 py-2 text-lg" type="submit" value="Send Message" />
+                     <input className="input-select w-full lg:w-9/12 cursor-pointer rounded-lg px-4 py-2 text-lg theme-bg" type="submit" value="Send Message"/>
                   </div>
                </form>
             </div>
